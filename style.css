@@ -1,0 +1,85 @@
+* {
+    font-family: "Inconsolata", serif;
+    color: hsl(0, 0%, 100%);
+}
+
+label{
+    font-size: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    background-image: url("./assets/images/pattern-lines.svg"), 
+    url("./assets/images/pattern-circle.svg"), 
+    url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"), 
+    url("./assets//images/pattern-squiggly-line-top.svg"),
+    url("./assets/images/background-mobile.png");
+
+
+    background-size: auto, auto, 350px, 115px, cover;
+    background-position: top, center, left bottom, right top 2rem;
+    background-repeat: no-repeat;
+    padding: 0.5rem;
+}
+
+.logo{
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+}
+
+header{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1{
+    display: inline-block;
+}
+
+header>p{
+    display: inline-block;
+    font-size: 1.38rem;
+    padding: 0 1.4rem 0 1.4rem;
+    color: hsl(252, 6%, 83%);
+    margin-top: 0;
+}
+
+form{
+    margin-bottom: 5rem;
+}
+
+input{
+    border-radius: 0.7rem;
+    width: 100%;
+    border: 1px solid hsl(245, 15%, 58%);
+    height: 3.5rem;
+    background:  hsla(252, 6%, 83%, 0.089);
+    margin-bottom: 1.5rem;
+    margin-top: 0.7rem;
+    font-size: 20px;
+    padding: 1rem;
+}
+
+input::placeholder {
+    color: hsl(252, 6%, 83%);
+    
+}
+
+input[type=submit]{
+    background-color: hsl(7, 88%, 67%);
+    border: none;
+    color: hsl(248, 70%, 10%);
+    font-weight: 900;
+}
+
+input[type=file]{
+    height: 7rem;
+    /* border-style: dashed; */
+}
+
