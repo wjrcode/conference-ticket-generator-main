@@ -42,16 +42,16 @@
   </header>
   <form id="form" name="form" novalidate>
     <label for="avatar" calss="input-file">Upload Avatar</label>
-    <div class="file-input">
-      <img id="avatar-photo" src="#" alt="your image" class="hide"/>
-      <button type="button" class="upload-button" id="upload-button"><img src="./assets/images/icon-upload.svg" alt="Upload button"
-          id="get_file"></button>
+    <div class="file-input" onclick="selectImage()">
+      <img id="avatar-photo" src="#" alt="class" class="hide" />
+      <button type="button" class="upload-button" id="upload-button" onclick="selectImage()"><img
+          src="./assets/images/icon-upload.svg" alt="Upload button" id="get_file"></button>
       <input required type="file" id="avatar" name="avatar" accept="image/png, image/gif, image/jpeg"
         onchange="avatarValidation()">
       <p id="atavar-text">Drag and drop or click to upload</p>
       <div class="avatar-actions hide" id="avatar-actions">
-        <button type="button">Remove Image</button>
-        <button type="button">Change Image</button>
+        <button type="button" onclick="removeAvatar()">Remove Image</button>
+        <button type="button" onclick="selectImage()">Change Image</button>
       </div>
     </div>
     <span class="input-message" id="message-error-avatar-empty">
@@ -123,7 +123,6 @@
 <script>
   const form = document.getElementById("form");
 
-
   form.addEventListener("submit", function (event) {
     console.log(form.avatar.validity);
 
@@ -158,8 +157,7 @@
       hideError(document.getElementById("message-error-github"));
     }
 
-
-  });
+  })
 
   function showError(error) {
     error.classList.add("active", "orange");
@@ -169,8 +167,17 @@
     error.classList.remove("active", "orange");
   }
 
-  document.getElementById('get_file').onclick = function () { document.getElementById('avatar').click(); };
+  selectImage = () => {
+    document.getElementById('avatar').click();
+  }
 
+  removeAvatar = () => {
+    document.getElementById('avatar').value = '';
+    document.getElementById("avatar-photo").classList.remove("active");
+    document.getElementById("upload-button").classList.remove("hide");
+    document.getElementById("atavar-text").classList.remove("hide");
+    document.getElementById("avatar-actions").classList.remove("active");
+  }
 
   avatarValidation = () => {
     const fi = document.getElementById('avatar');
@@ -193,16 +200,12 @@
           document.getElementById("upload-button").classList.add("hide");
           document.getElementById("atavar-text").classList.add("hide");
           document.getElementById("avatar-actions").classList.add("active");
-
-          
         }
-
       }
     }
   }
 
   function readURL(input) {
-    console.log(input.files)
 
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -214,7 +217,7 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
-  
+
 </script>
 
 </html>

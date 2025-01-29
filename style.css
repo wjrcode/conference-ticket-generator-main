@@ -81,9 +81,18 @@ input[type=submit]{
     margin-top: 2rem;
 }
 
+input[type=submit]:hover{
+    background-color: hsl(7, 71%, 60%)
+}
+
 input:focus{
     outline: 2px solid hsl(245, 15%, 58%);
     outline-offset: 0.18rem;
+}
+
+input:hover{
+    background:  hsla(252, 6%, 83%, 0.297);
+    cursor: pointer;
 }
 
 .file-input{
