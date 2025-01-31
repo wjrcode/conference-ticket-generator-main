@@ -32,91 +32,93 @@
 </head>
 
 <body>
-
-  <div class="logo">
-    <img src="./assets/images/logo-full.svg" alt="Coding Conf logo" />
-  </div>
-  <header>
-    <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-    <p>Secure your spot at next year's biggest coding conference.</p>
-  </header>
-  <form id="form" name="form" novalidate>
-    <label for="avatar" calss="input-file">Upload Avatar</label>
-    <div class="file-input" onclick="selectImage()">
-      <img id="avatar-photo" src="#" alt="class" class="hide" />
-      <button type="button" class="upload-button" id="upload-button" onclick="selectImage()"><img
-          src="./assets/images/icon-upload.svg" alt="Upload button" id="get_file"></button>
-      <input required type="file" id="avatar" name="avatar" accept="image/png, image/gif, image/jpeg"
-        onchange="avatarValidation()">
-      <p id="atavar-text">Drag and drop or click to upload</p>
-      <div class="avatar-actions hide" id="avatar-actions">
-        <button type="button" onclick="removeAvatar()">Remove Image</button>
-        <button type="button" onclick="selectImage()">Change Image</button>
+  <div class="container">
+    <div class="logo">
+      <img src="./assets/images/logo-full.svg" alt="Coding Conf logo" />
+    </div>
+    <header>
+      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p>Secure your spot at next year's biggest coding conference.</p>
+    </header>
+    <form id="form" name="form" novalidate>
+      <label for="avatar" calss="input-file">Upload Avatar</label>
+      <div class="file-input" onclick="selectImage()" id="file-input" tabindex="0">
+        <div class="upload-button" id="upload-button"><img src="./assets/images/icon-upload.svg" alt="Upload button">
+        </div>
+        <input required type="file" id="avatar" name="avatar" accept="image/png, image/gif, image/jpeg"
+          onchange="avatarValidation()">
+        <p id="atavar-text">Drag and drop or click to upload</p>
       </div>
-    </div>
-    <span class="input-message" id="message-error-avatar-empty">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-        <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
-        <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
-        <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M8.004 10.462V7.596M8 5.569v-.042" />
-      </svg>
-      <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
-    </span>
-    <span class="input-message hide" id="message-error-avatar">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-        <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
-        <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
-        <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M8.004 10.462V7.596M8 5.569v-.042" />
-      </svg>
-      <p>File too large. Please upload a photo under 500kb.</p>
-    </span>
-    <label for="name">Full Name</label>
-    <input required type="text" id="name" name="name">
-    <div class="input-message hide" id="message-error-name">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-        <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
-        <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
-        <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M8.004 10.462V7.596M8 5.569v-.042" />
-      </svg>
-      <p>Please enter your full name.</p>
-    </div>
-    <label for="email">Email Address</label>
-    <input required type="text" id="email" name="email" placeholder="example@email.com">
-    <span class="input-message hide" aria-live="polite" id="message-error-email">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-        <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
-        <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
-        <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M8.004 10.462V7.596M8 5.569v-.042" />
-      </svg>
-      <p>Please enter a valid email address.</p>
-    </span>
-    <label for="github">GitHub Username</label><br>
-    <input required type="text" id="github" name="github" placeholder="@yourusername">
-    <span class="input-message hide" id="message-error-github">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-        <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
-        <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
-        <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
-          d="M8.004 10.462V7.596M8 5.569v-.042" />
-      </svg>
-      <p>Please enter your GitHub Username.</p>
-    </span>
-    <input type="submit" value="Generate My Ticket">
+      <div class="file-input--filled hide" id="file-input--filled">
+        <img id="avatar-photo" src="#" alt="class" />
+        <div class="avatar-actions" id="avatar-actions">
+          <button type="button" onclick="removeAvatar()">Remove Image</button>
+          <button type="button" onclick="selectImage()">Change Image</button>
+        </div>
+      </div>
+      <span class="input-message" id="message-error-avatar-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+          <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+          <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042" />
+        </svg>
+        <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+      </span>
+      <span class="input-message hide" id="message-error-avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+          <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+          <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042" />
+        </svg>
+        <p>File too large. Please upload a photo under 500kb.</p>
+      </span>
+      <label for="name">Full Name</label>
+      <input required type="text" id="name" name="name">
+      <div class="input-message hide" id="message-error-name">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+          <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+          <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042" />
+        </svg>
+        <p>Please enter your full name.</p>
+      </div>
+      <label for="email">Email Address</label>
+      <input required type="text" id="email" name="email" placeholder="example@email.com">
+      <span class="input-message hide" aria-live="polite" id="message-error-email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+          <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+          <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042" />
+        </svg>
+        <p>Please enter a valid email address.</p>
+      </span>
+      <label for="github">GitHub Username</label><br>
+      <input required type="text" id="github" name="github" placeholder="@yourusername">
+      <span class="input-message hide" id="message-error-github">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+          <path path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+          <path stroke=var(--color) fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path stroke=var(--color) stroke-linecap="round" stroke-linejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042" />
+        </svg>
+        <p>Please enter your GitHub Username.</p>
+      </span>
+      <input type="submit" value="Generate My Ticket">
+    </form>
 
-  </form>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Willian Pinheiro Jr</a>.
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Willian Pinheiro Jr</a>.
+    </div>
   </div>
 </body>
 
@@ -173,10 +175,8 @@
 
   removeAvatar = () => {
     document.getElementById('avatar').value = '';
-    document.getElementById("avatar-photo").classList.remove("active");
-    document.getElementById("upload-button").classList.remove("hide");
-    document.getElementById("atavar-text").classList.remove("hide");
-    document.getElementById("avatar-actions").classList.remove("active");
+    document.getElementById("file-input--filled").classList.add("hide");
+    document.getElementById("file-input").classList.remove("hide");
   }
 
   avatarValidation = () => {
@@ -196,17 +196,14 @@
           hideError(document.getElementById("message-error-avatar"));
           document.getElementById("message-error-avatar-empty").classList.remove("hide");
           readURL(fi)
-          document.getElementById("avatar-photo").classList.add("active");
-          document.getElementById("upload-button").classList.add("hide");
-          document.getElementById("atavar-text").classList.add("hide");
-          document.getElementById("avatar-actions").classList.add("active");
+          document.getElementById("file-input--filled").classList.remove("hide");
+          document.getElementById("file-input").classList.add("hide");
         }
       }
     }
   }
 
   function readURL(input) {
-
     if (input.files && input.files[0]) {
       var reader = new FileReader();
 

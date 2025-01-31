@@ -6,37 +6,37 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-    background-image: url("./assets/images/pattern-lines.svg"), 
-    url("./assets/images/pattern-circle.svg"), 
-    url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"), 
-    url("./assets//images/pattern-squiggly-line-top.svg"),
-    url("./assets/images/background-mobile.png");
+    background-image: url("./assets/images/pattern-lines.svg"),
+        url("./assets/images/pattern-circle.svg"),
+        url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+        url("./assets//images/pattern-squiggly-line-top.svg"),
+        url("./assets/images/background-mobile.png");
     background-size: auto, auto, 350px, 115px, cover;
     background-position: top, center, left bottom, right top 2rem;
     background-repeat: no-repeat;
     padding: 0.5rem;
 }
 
-.logo{
+.logo {
     display: flex;
     padding: 2rem;
     justify-content: center;
 }
 
-header{
+header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-h1{
+h1 {
     display: inline-block;
 }
 
-header>p{
+header>p {
     display: inline-block;
     font-size: 1.38rem;
     padding: 0 1.4rem 0 1.4rem;
@@ -44,26 +44,26 @@ header>p{
     margin-top: 0;
 }
 
-form{
+form {
     margin-bottom: 6.5rem;
 }
 
-label{
+label {
     font-size: 20px;
-    display:inline-block;
+    display: inline-block;
     margin-top: 2rem;
 }
 
-label:first-child{
+label:first-child {
     margin-top: 0;
 }
 
-input{
+input {
     border-radius: 0.7rem;
     width: 100%;
     border: 2px solid hsl(245, 15%, 58%);
-    height: 3.5rem;
-    background:  hsla(252, 6%, 83%, 0.089);
+    height: 5rem;
+    background: hsla(252, 6%, 83%, 0.089);
     margin-top: 0.7rem;
     font-size: 20px;
     padding: 1rem;
@@ -73,7 +73,7 @@ input::placeholder {
     color: hsl(252, 6%, 83%);
 }
 
-input[type=submit]{
+input[type=submit] {
     background-color: hsl(7, 88%, 67%);
     border: none;
     color: hsl(248, 70%, 10%);
@@ -81,24 +81,27 @@ input[type=submit]{
     margin-top: 2rem;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover {
     background-color: hsl(7, 71%, 60%)
 }
 
-input:focus{
+.file-input:focus,
+input:focus {
     outline: 2px solid hsl(245, 15%, 58%);
     outline-offset: 0.18rem;
 }
 
-input:hover{
-    background:  hsla(252, 6%, 83%, 0.297);
+.file-input:hover,
+input:hover {
+    background: hsla(252, 6%, 83%, 0.297);
     cursor: pointer;
 }
 
-.file-input{
+.file-input--filled,
+.file-input {
     border: 2px dashed hsl(245, 15%, 58%);
     border-radius: 0.7rem;
-    background:  hsla(252, 6%, 83%, 0.089);
+    background: hsla(252, 6%, 83%, 0.089);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,16 +110,16 @@ input:hover{
     margin-top: 0.7rem;
 }
 
-.file-input>p{
+.file-input>p {
     color: hsl(252, 6%, 83%);
     margin: 0;
     font-size: 20px;
 }
 
-.upload-button{
+.upload-button {
     border-radius: 0.7rem;
     border: 1px solid hsl(245, 15%, 58%);
-    background:  hsla(252, 6%, 83%, 0.178);
+    background: hsla(252, 6%, 83%, 0.178);
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -126,50 +129,52 @@ input:hover{
     aspect-ratio: 1;
 }
 
-.input-message{
+.input-message {
     display: flex;
     align-items: center;
-    --color:  hsl(252, 6%, 83%);
+    --color: hsl(252, 6%, 83%);
 }
 
-.input-message>p{
+.input-message>p {
     font-size: 0.9rem;
     color: hsl(252, 6%, 83%);
     margin-left: 0.5rem;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.active{
+.active {
     display: flex;
 }
 
-.orange, .error>p, .orange>p{
-    --color:  hsl(7, 71%, 60%);
-    color:  hsl(7, 71%, 60%);
+.orange,
+.error>p,
+.orange>p {
+    --color: hsl(7, 71%, 60%);
+    color: hsl(7, 71%, 60%);
 }
 
 #avatar {
     display: none;
 }
 
-#avatar-photo{
+#avatar-photo {
     border-radius: 0.7rem;
     border: 1px solid hsl(245, 15%, 58%);
     width: 3rem;
     aspect-ratio: 1;
 }
 
-.avatar-actions{
-    display: hide;
-    gap:0.5rem;
+.avatar-actions {
+    display: flex;
+    gap: 0.5rem;
 }
 
-.avatar-actions>button{
+.avatar-actions>button {
     border-radius: 0.4rem;
-    background:  hsla(252, 6%, 83%, 0.178);
+    background: hsla(252, 6%, 83%, 0.178);
     border: none;
     margin-top: 0.7rem;
     font-size: 0.8rem;
@@ -179,8 +184,28 @@ input:hover{
     margin: 0;
 }
 
-.avatar-actions>button:hover{
+.avatar-actions>button:hover {
     text-decoration: underline;
 }
 
+@media (min-width: 1440px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
 
+    .container {
+        max-width: 70rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    form {
+        max-width: 50%;
+    }
+}
