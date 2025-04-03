@@ -36,7 +36,7 @@
       <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
       <p>Secure your spot at next year's biggest coding conference.</p>
     </header>
-    <form id="form" name="form" novalidate action="ticket-page.html" method="post" onsubmit="return saveFormData()">
+    <form id="form" name="form" novalidate onsubmit="return saveFormData()">
       <label for="avatar" calss="input-file">Upload Avatar</label>
       <div class="file-input" onclick="selectImage()" id="file-input" tabindex="0">
         <div class="upload-button" id="upload-button"><img src="./assets/images/icon-upload.svg" alt="Upload button">
@@ -158,7 +158,9 @@
     localStorage.setItem('email', form.email.value);
     localStorage.setItem('github', form.github.value);
 
-    return true;
+    event.preventDefault();
+
+    window.location.replace('/ticket-page.html');
   }
 
   function showError(error) {
