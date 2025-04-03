@@ -36,7 +36,6 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/wjrcode/conference-ticket-generator-main)
