@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(7, 88%, 67%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="./assets/images/logo-full.svg" alt="Coding Conf logo" />
+    </div>
+    <header>
+      <h1 id="congrats-message">Congrats, ${teste}! Your ticket is ready.</h1>
+      <p id="email-message"></p>
+    </header>
+    <div class="ticket">
+      <div class="ticket-info">
+        <div class="event-details">
+          <img id="logo" src="./assets/images/logo-mark.svg" alt="">
+          <div class="event-info">
+            <p class="event-name">Coding Conf</p>
+            <p class="event-date">Jan 31, 2025 / Austin, TX</p>
+          </div>
+        </div>
+        <div class="consumer-details">
+          <img id="consumer-photo" src="#" alt="class" />
+          <div class="consumer-info">
+            <p id="consumer-name"></p>
+            <div class="github-info">
+              <img src="./assets/images/icon-github.svg" alt="">
+              <p id="git-username">dfasf</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ticket-number">
+        #555588
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  var name = localStorage.getItem('name');
+  var email = localStorage.getItem('email');
+  var github = localStorage.getItem('github');
+
+  document.getElementById("consumer-photo").src = localStorage.getItem('avatar');
+  document.getElementById("congrats-message").innerHTML = `Congrats, <span>${name}</span>! Your ticket is ready.`;
+  document.getElementById("email-message").innerHTML = `We've emailed your ticket to <span>${email}</span> and will send updates in the run up to the event.`;
+  document.getElementById("git-username").innerHTML = `@${github}`;
+  document.getElementById("consumer-name").innerHTML = `${name}`;
+</script>
+</html>

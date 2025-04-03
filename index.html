@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +15,6 @@
 
   <title>Frontend Mentor | Conference ticket generator</title>
 
-
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
       font-size: 11px;
@@ -26,7 +22,7 @@
     }
 
     .attribution a {
-      color: hsl(228, 45%, 44%);
+      color: hsl(7, 88%, 67%);
     }
   </style>
 </head>
@@ -40,7 +36,7 @@
       <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
       <p>Secure your spot at next year's biggest coding conference.</p>
     </header>
-    <form id="form" name="form" novalidate>
+    <form id="form" name="form" novalidate action="ticket-page.html" method="post" onsubmit="return saveFormData()">
       <label for="avatar" calss="input-file">Upload Avatar</label>
       <div class="file-input" onclick="selectImage()" id="file-input" tabindex="0">
         <div class="upload-button" id="upload-button"><img src="./assets/images/icon-upload.svg" alt="Upload button">
@@ -125,12 +121,11 @@
 <script>
   const form = document.getElementById("form");
 
-  form.addEventListener("submit", function (event) {
-    console.log(form.avatar.validity);
+  function saveFormData() {
 
     if (form.avatar.validity.valueMissing) {
       showError(document.getElementById("message-error-avatar-empty"));
-      event.preventDefault();
+      return false;
     }
     else {
       hideError(document.getElementById("message-error-avatar-empty"));
@@ -138,7 +133,7 @@
 
     if (form.name.validity.valueMissing) {
       showError(document.getElementById("message-error-name"));
-      event.preventDefault();
+      return false;
     }
     else {
       hideError(document.getElementById("message-error-name"));
@@ -146,20 +141,25 @@
 
     if (!form.email.validity.valid) {
       showError(document.getElementById("message-error-email"));
-      event.preventDefault();
+      return false;
     } else {
       hideError(document.getElementById("message-error-email"));
     }
 
     if (form.github.validity.valueMissing) {
       showError(document.getElementById("message-error-github"));
-      event.preventDefault();
+      return false;
     }
     else {
       hideError(document.getElementById("message-error-github"));
     }
 
-  })
+    localStorage.setItem('name', form.name.value);
+    localStorage.setItem('email', form.email.value);
+    localStorage.setItem('github', form.github.value);
+
+    return true;
+  }
 
   function showError(error) {
     error.classList.add("active", "orange");
@@ -209,6 +209,7 @@
 
       reader.onload = function (e) {
         document.getElementById("avatar-photo").setAttribute('src', e.target.result);
+        localStorage.setItem('avatar', e.target.result);
       }
 
       reader.readAsDataURL(input.files[0]);

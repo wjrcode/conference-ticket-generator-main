@@ -19,6 +19,7 @@ body {
     background-position: top, center, left bottom, right top 2rem;
     background-repeat: no-repeat;
     padding: 0.5rem;
+    min-height: 100vh;
 }
 
 .logo {
@@ -163,7 +164,7 @@ input:hover {
 #avatar-photo {
     border-radius: 0.7rem;
     border: 1px solid hsl(245, 15%, 58%);
-    width: 3rem;
+    height: 3rem;
     aspect-ratio: 1;
 }
 
@@ -188,10 +189,123 @@ input:hover {
     text-decoration: underline;
 }
 
-@media (min-width: 1440px) {
+/**/
+
+#congrats-message>span {
+    background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bolder;
+}
+
+#email-message>span {
+    color: hsl(7, 88%, 67%);
+}
+
+.github-info {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+.ticket {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    background-image: url("./assets/images/pattern-ticket.svg");
+    padding: 1rem 0 1rem 1rem;
+    padding: 1rem;
+    gap: 3rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: max-content;
+}
+
+.ticket-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    width: 17rem;
+}
+
+.ticket-number {
+    writing-mode: vertical-lr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    font-size: 1.5rem;
+    color: hsl(245, 15%, 58%);
+    padding-left: 0.5rem;
+}
+
+.consumer-details {
+    display: flex;
+    gap: 1rem;
+}
+
+.consumer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.event-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#git-username {
+    margin: 0;
+    color: hsl(252, 6%, 83%);
+}
+
+#consumer-name {
+    margin: 0;
+    font-size: 1.5rem;
+
+}
+
+#consumer-photo {
+    border-radius: 0.7rem;
+    height: 4rem;
+    aspect-ratio: 1;
+}
+
+#logo {
+    height: 3rem;
+}
+
+.event-name{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.event-date{
+    margin: 0;
+    color: hsl(252, 6%, 83%);
+}
+
+@media (min-width: 1300px) {
     body {
         display: flex;
         justify-content: center;
+        background-image: url("./assets/images/pattern-lines.svg"),
+            url("./assets/images/pattern-circle.svg"),
+            url("./assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+            url("./assets//images/pattern-squiggly-line-top.svg"),
+            url("./assets/images/background-desktop.png");
+        background-size: auto, auto, 1400px, 600px, cover;
+        background-position: top, center, left bottom, right top 6rem;
     }
 
     .container {
@@ -205,7 +319,12 @@ input:hover {
         font-size: 5rem;
     }
 
+    header>p {
+
+        font-size: 2rem;
+    }
+
     form {
-        max-width: 50%;
+        max-width: 60%;
     }
 }
