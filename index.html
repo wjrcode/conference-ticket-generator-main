@@ -146,6 +146,13 @@
       hideError(document.getElementById("message-error-email"));
     }
 
+    if(!validateEmail(form.email.value)){
+      showError(document.getElementById("message-error-email"));
+      return false;
+    } else {
+      hideError(document.getElementById("message-error-email"));
+    }
+
     if (form.github.validity.valueMissing) {
       showError(document.getElementById("message-error-github"));
       return false;
@@ -160,8 +167,16 @@
 
     event.preventDefault();
 
-    window.location.replace('/conference-ticket-generator-main/ticket-page.html');
+    window.location.href = "/ticket-page.html";
   }
+
+  function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  console.log(email)
+  
+  return emailRegex.test(email);
+}
 
   function showError(error) {
     error.classList.add("active", "orange");
