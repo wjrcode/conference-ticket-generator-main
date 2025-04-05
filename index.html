@@ -167,7 +167,7 @@
 
     event.preventDefault();
 
-    window.location.href = "/ticket-page.html";
+    navigateToPage("ticket-page.html");
   }
 
   function validateEmail(email) {
@@ -182,6 +182,14 @@
 
   function hideError(error) {
     error.classList.remove("active", "orange");
+  }
+
+  function navigateToPage(pageName) {
+    const currentPath = window.location.pathname;
+    const directory = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+    const newUrl = window.location.origin + directory + pageName;
+  
+    window.location.href = newUrl;
   }
 
   selectImage = () => {
